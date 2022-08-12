@@ -34,7 +34,8 @@ Route::namespace('App\Http\Controllers\Api')->group(function(){
      * apiToken 认证路由
      */
     Route::middleware(['api.token'])->group(function () {
-        Route::get('/', function () {
+        Route::prefix('template')->group(function () {
+            Route::post('/add', 'TemplateController@add');
         });
     });
 });
