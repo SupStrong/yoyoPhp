@@ -34,8 +34,22 @@ Route::namespace('App\Http\Controllers\Api')->group(function(){
      * apiToken 认证路由
      */
     Route::middleware(['api.token'])->group(function () {
+        // 模板
         Route::prefix('template')->group(function () {
-            Route::post('/add', 'TemplateController@add');
+            Route::post('/add', 'TemplateController@add');                                                                      // 添加
+            Route::post('/update', 'TemplateController@update');                                                                // 修改
+            Route::get('/find/{id}', 'TemplateController@find')->where('id', '[1-9]+');                                         // 单条记录                                                            // 修改
+            Route::get('/delete/{id}/{userId}', 'TemplateController@delete')->where(['id' => '[1-9]+', 'userId' => '[1-9]+']);  // 删除
+        });
+        // 字体
+        Route::prefix('font')->group(function () {
+            Route::post('/add', 'UserFontController@add');                                   // 添加
+            Route::post('/update', 'UserFontController@update');                             // 修改
+            Route::get('/delete/{id}', 'UserFontController@delete')->where('id', '[1-9]+');  // 删除
+        });
+        // 查询
+        Route::prefix('search')->group(function () {
+            Route::post('/words', 'SearchController@words');  // 关键词
         });
     });
 });
