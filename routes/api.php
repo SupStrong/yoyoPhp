@@ -46,6 +46,7 @@ Route::namespace('App\Http\Controllers\Api')->group(function(){
             Route::post('/add', 'UserFontController@add');                                   // 添加
             Route::post('/update', 'UserFontController@update');                             // 修改
             Route::get('/delete/{id}', 'UserFontController@delete')->where('id', '[1-9]+');  // 删除
+            Route::get('/find/{id}', 'UserFontController@find')->where('id', '[1-9]+');      // 单条记录
         });
         // 查询
         Route::prefix('search')->group(function () {
