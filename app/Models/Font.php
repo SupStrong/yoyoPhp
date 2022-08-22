@@ -2,13 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Font extends Model
+class Font extends BaseModel
 {
-    use HasFactory;
-    protected $guarded = [];
     const CREATED_AT = 'createdAt';
     const UPDATED_AT = 'updatedAt';
 }
