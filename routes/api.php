@@ -43,10 +43,10 @@ Route::namespace('App\Http\Controllers\Api')->group(function(){
         });
         // 字体
         Route::prefix('font')->group(function () {
-            Route::post('/add', 'FontController@add');                                   // 添加
-            Route::post('/update', 'FontController@update');                             // 修改
-            Route::get('/delete/{id}', 'FontController@delete')->where('id', '[1-9]+');  // 删除
-            Route::get('/find/{id}', 'FontController@find')->where('id', '[1-9]+');      // 单条记录
+            Route::post('/add', 'FontController@add');                                                                      // 添加
+            Route::post('/update', 'FontController@update');                                                                // 修改
+            Route::get('/delete/{id}/{userId}', 'FontController@delete')->where(['id' => '[1-9]+', 'userId' => '[1-9]+']);  // 删除
+            Route::get('/find/{id}', 'FontController@find')->where('id', '[1-9]+');                                         // 单条记录
         });
         // 查询
         Route::prefix('search')->group(function () {

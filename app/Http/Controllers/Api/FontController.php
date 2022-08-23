@@ -89,6 +89,7 @@ class FontController extends ApiBaseController
             if ($userFont['user_id'] != $userId) {
                 return $this->error('非法操作');
             }
+            $userFont->delete();
             return $this->success('删除成功');
         } catch (\Exception $e) {
             return $this->error($e->getMessage());
